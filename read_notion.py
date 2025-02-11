@@ -69,4 +69,21 @@ output_meetings = "\n".join(f"{i+1}. {meeting[1]}" for i, meeting in enumerate(c
 
 final_output = f"My agenda today:\n{output_today}\n\nMy upcoming client meetings:\n{output_meetings}" if client_meetings else f"My agenda today:\n{output_today}\n\nNo upcoming client meetings."
 
-print(final_output)
+# print(final_output)
+
+
+
+TELEGRAM_BOT_TOKEN = "7629770393:AAHtvtbixqbU-hFbJtOv1c4hnL9jp32Zdcs"
+TELEGRAM_USER_ID = "5681725788"
+
+def send_telegram_dm(message):
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    data = {
+        "chat_id": TELEGRAM_USER_ID,
+        "text": message,
+        "parse_mode": "Markdown",
+    }
+    requests.post(url, json=data)
+
+# Send the agenda to your DM
+send_telegram_dm(final_output)
