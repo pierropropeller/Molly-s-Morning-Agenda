@@ -2,7 +2,7 @@ name: Run Notion Agenda Script
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs every day at 9 AM (set to your time zone)
+    - cron: '0 1 * * 1-5'  # Runs every day at 9 AM (set to your time zone)
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
