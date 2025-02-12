@@ -22,6 +22,3 @@ jobs:
 
       - name: Run script
         run: python export_notion_agenda.py > output.txt
-
-      - name: Send output to Discord
-        run: curl -H "Content-Type: application/json" -d "{\"content\": \"$(cat output.txt)\"}" YOUR_DISCORD_WEBHOOK_URL
